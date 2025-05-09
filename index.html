@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XHM的个人网站</title>
+    <title>你好，我是徐浩铭！</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            background: black;
             color: white;
             display: flex;
             justify-content: center;
@@ -18,18 +18,48 @@
             overflow: hidden;
         }
 
+        .background {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 1) 100%);
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .background::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fad0c4, #fbc2eb, #8fd3f4);
+            animation: moveBackground 10s linear infinite;
+            opacity: 0.3;
+        }
+
+        @keyframes moveBackground {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
         .container {
             text-align: center;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.1); /* 主窗口透明度90% */
             padding: 2rem;
             border-radius: 1rem;
             backdrop-filter: blur(10px);
             box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
             animation: fadeIn 1.5s ease-in-out;
+            position: relative;
+            z-index: 2;
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 3rem;
             margin-bottom: 1rem;
             animation: slideIn 1.5s ease-in-out;
         }
@@ -58,6 +88,18 @@
             color: #ffa500;
         }
 
+        .logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 15rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.05);
+            z-index: 1;
+            pointer-events: none;
+        }
+
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -80,11 +122,13 @@
     </style>
 </head>
 <body>
+    <div class="background"></div>
+    <div class="logo">XT</div>
     <div class="container">
         <h1>你好，我是徐浩铭！</h1>
-        <h1>这是我搭建的HDML静态网站1.0</h1>
         <p>生日：2010/06/12</p>
         <p>星座：双子座</p>
+        <p>地区：海南</p>
         <div class="info">
             <p>联系方式（邮箱）：<a href="mailto:17789870123@163.com">17789870123@163.com</a></p>
         </div>
